@@ -1,0 +1,36 @@
+.contain-table {
+  margin: auto;
+
+  width: 60%;
+  
+  overflow: scroll;
+  height: 50vh;
+  box-shadow: 10px 10px 12px rgb(66, 177, 218);
+  border-radius: 20px;
+  overflow-x: hidden;
+  
+  padding: 10px 10px;
+}
+
+.button-edit {
+  border-radius: 20px;
+font-size: 17px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  height: 44px;
+
+  padding: 0 20px;
+
+  position: relative;
+  text-align: center;
+
+  width: 80%;
+  z-index: 9;
+  border: 0;
+}
+
+.button-edit {
+  background: #00bd68;
+}
