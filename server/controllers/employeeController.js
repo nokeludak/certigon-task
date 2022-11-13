@@ -62,5 +62,17 @@ const getAllEmployees = async (req, res, next) => {
       res.status(500).json(error);
     }
   }
-
-module.exports = { create, getAllEmployees, getEmployeesById, getActiveOrInactive, deleteEmployee }
+ // UPDATE USERS
+ const updateEmployee = async (req, res, next) => {
+try {
+  const updatedUser = await Employee.findByIdAndUpdate(
+    req.params.id,
+    {$set: req.body},
+    { new: true },
+  )
+  res.status(200).json(updatedUser);
+} catch (error) {
+  console.log(error)
+}
+ }
+module.exports = { create, getAllEmployees, getEmployeesById, getActiveOrInactive, deleteEmployee, updateEmployee }

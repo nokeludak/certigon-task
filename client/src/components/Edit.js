@@ -61,7 +61,7 @@ function Edit({ customers, selectedEmployee, setCustomers, setIsEditing }) {
                     placeholder="First Name"
                     id="name"
                     type="text"
-                    
+                   
                     name="name"
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
@@ -111,7 +111,7 @@ function Edit({ customers, selectedEmployee, setCustomers, setIsEditing }) {
                     label="Inactive"
                         id="true"
                         type="checkbox"
-                        
+                       
                         value={active}
                         onChange={e => setActive(e.target.value)}
                     />
@@ -119,20 +119,20 @@ function Edit({ customers, selectedEmployee, setCustomers, setIsEditing }) {
                     label="Active"
                         id="false"
                         type="checkbox"
-                        
+                       
                         value={active}
                         onChange={e => setActive(e.target.value)}
-                        
+                       
                     />
                 <div style={{ marginTop: '30px' }}>
-                    <input type="submit" value="Update" />
-                    <input
-                        style={{ marginLeft: '12px' }}
-                        className="muted-button"
-                        type="button"
-                        value="Cancel"
-                        onClick={() => setIsEditing(false)}
-                    />
+                    <button type="submit" value="Update">Update</button>
+                    <button
+                    style={{ marginLeft: '12px' }}
+                    className="muted-button"
+                    type="button"
+                    value="Cancel"
+                    onClick={() => setIsEditing(false)}>Cancel</button>
+                   
                 </div>
             </form>
         </div>
