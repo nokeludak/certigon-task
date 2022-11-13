@@ -1,27 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Swal from 'sweetalert2';
-
+import axios from "axios"
 import Header from './Header';
 import List from './List';
 import Add from './Add';
 import Edit from './Edit';
 import "./Dashboard.css"
 
-import { employeesData } from '../data/index';
+
 
 function Dashboard() {
 
-    const [employees, setEmployees] = useState(employeesData);
+   
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    const [customers, setCustomers] = useState([]);
 
-    const handleEdit = (id) => {
-        const [employee] = employees.filter(employee => employee.id === id);
 
-        setSelectedEmployee(employee);
-        setIsEditing(true);
+    useEffect(() => {
+        const getCustomers = async () => {
+          try {
+            const res = await axios.get("https://certigon-task.herokuapp.com/employees");
+            setCustomers(res.data);
+            console.log(res.data);
+            console.log(res.data)
+          } catch (error) {}
+        };
+        getCustomers();
+      }, []);
+
+      
+
+    const handleEdit =  (id) => {
+        try {
+            const res =  axios.post("https://certigon-task.herokuapp.com/create", id);
+            setSelectedEmployee(res);
+            setIsEditing(true);
+          } catch (error) {
+            console.log(error);
+          }
+       
     }
+
+   
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -33,7 +55,7 @@ function Dashboard() {
             cancelButtonText: 'No, cancel!',
         }).then(result => {
             if (result.value) {
-                const [employee] = employees.filter(employee => employee.id === id);
+                const [employee] = customers.filter(employee => employee.id === id);
 
                 Swal.fire({
                     icon: 'success',
@@ -43,10 +65,10 @@ function Dashboard() {
                     timer: 1500,
                 });
 
-                setEmployees(employees.filter(employee => employee.id !== id));
+                setCustomers(customers.filter(employee => employee.id !== id));
             }
         });
-    }
+    } 
 
 
     return (
@@ -58,7 +80,7 @@ function Dashboard() {
                         setIsAdding={setIsAdding}
                     />
                     <List
-                        employees={employees}
+                        customers={customers}
                         handleEdit={handleEdit}
                         handleDelete={handleDelete}
                     />
@@ -67,17 +89,17 @@ function Dashboard() {
             {/* Add */}
             {isAdding && (
                 <Add
-                    employees={employees}
-                    setEmployees={setEmployees}
+                customers={customers}
+                    setCustomers={setCustomers}
                     setIsAdding={setIsAdding}
                 />
             )}
             {/* Edit */}
             {isEditing && (
                 <Edit
-                    employees={employees}
+                customers={customers}
                     selectedEmployee={selectedEmployee}
-                    setEmployees={setEmployees}
+                    setCustomers={setCustomers}
                     setIsEditing={setIsEditing}
                 />
             )}

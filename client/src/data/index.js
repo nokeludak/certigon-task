@@ -3,7 +3,7 @@ const employeesData = [
       id: 1,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       country: "BIH",
       address: 'Glasinacka 20',
       active: 'true'
@@ -12,7 +12,7 @@ const employeesData = [
       id: 2,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'false'
@@ -21,7 +21,7 @@ const employeesData = [
       id: 3,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'false'
@@ -30,7 +30,7 @@ const employeesData = [
       id: 4,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'true'
@@ -39,7 +39,7 @@ const employeesData = [
       id: 5,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'true'
@@ -48,7 +48,7 @@ const employeesData = [
       id: 6,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'false'
@@ -57,7 +57,7 @@ const employeesData = [
       id: 7,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'true'
@@ -66,7 +66,7 @@ const employeesData = [
       id: 8,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'true'
@@ -75,7 +75,7 @@ const employeesData = [
       id: 9,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'false'
@@ -84,7 +84,7 @@ const employeesData = [
       id: 10,
       firstName: 'Susan',
       lastName: 'Jordon',
-      department: 'susan@example.com',
+      department: 'Domacica',
       address: 'Glasinacka 20',
       country: "BIH",
       active: 'true'

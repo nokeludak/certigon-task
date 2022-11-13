@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2';
-
-function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
+import "./Edit.css"
+function Edit({ customers, selectedEmployee, setCustomers, setIsEditing }) {
 
     const id = selectedEmployee.id;
 
     const [firstName, setFirstName] = useState(selectedEmployee.firstName);
     const [lastName, setLastName] = useState(selectedEmployee.lastName);
-    const [email, setEmail] = useState(selectedEmployee.email);
-    const [salary, setSalary] = useState(selectedEmployee.salary);
-    const [date, setDate] = useState(selectedEmployee.date);
-
+    const [department, setDepartment] = useState(selectedEmployee.department);
+    const [country, setCountry] = useState(selectedEmployee.country);
+    const [address, setAddress] = useState(selectedEmployee.address);
+    const [active, setActive] = useState(selectedEmployee.active);
     const handleUpdate = e => {
         e.preventDefault();
 
-        if (!firstName || !lastName || !email || !salary || !date) {
+        if (!firstName || !lastName || !department || !country || !address || !active) {
             return Swal.fire({
                 icon: 'error',
                 title: 'Error!',
@@ -27,19 +27,20 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
             id,
             firstName,
             lastName,
-            email,
-            salary,
-            date
+            department,
+            address,
+            country,
+            active
         };
 
-        for (let i = 0; i < employees.length; i++) {
-            if (employees[i].id === id) {
-                employees.splice(i, 1, employee);
+        for (let i = 0; i < customers.length; i++) {
+            if (customers[i].id === id) {
+                customers.splice(i, 1, employee);
                 break;
             }
         }
 
-        setEmployees(employees);
+        setCustomers(customers);
         setIsEditing(false);
 
         Swal.fire({
@@ -52,49 +53,77 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
     };
 
     return (
-        <div className="small-container">
-            <form onSubmit={handleUpdate}>
-                <h1>Edit Employee</h1>
+        <div className="login-container">
+            <form className="form-log" onSubmit={handleUpdate}>
+                <h1 className="login-h1">Edit Employee</h1>
                 <label htmlFor="firstName">First Name</label>
-                <input
-                    id="firstName"
+                <input className="login-input"
+                    placeholder="First Name"
+                    id="name"
                     type="text"
-                    name="firstName"
+                    
+                    name="name"
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
                 />
                 <label htmlFor="lastName">Last Name</label>
                 <input
+                className="login-input"
+                    placeholder="Last Name"
                     id="lastName"
                     type="text"
                     name="lastName"
                     value={lastName}
                     onChange={e => setLastName(e.target.value)}
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Department</label>
                 <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                className="login-input"
+                   placeholder="Department"
+                   id="department"
+                   type="text"
+                   name="department"
+                   value={department}
+                    onChange={e => setDepartment(e.target.value)}
                 />
-                <label htmlFor="salary">Salary ($)</label>
-                <input
-                    id="salary"
-                    type="number"
-                    name="salary"
-                    value={salary}
-                    onChange={e => setSalary(e.target.value)}
-                />
-                <label htmlFor="date">Date</label>
-                <input
-                    id="date"
-                    type="date"
-                    name="date"
-                    value={date}
-                    onChange={e => setDate(e.target.value)}
-                />
+                <label htmlFor="country">Country</label>
+                    <input
+                    className="login-input"
+                    placeholder="Country"
+                        id="country"
+                        type="text"
+                        name="country"
+                        value={country}
+                        onChange={e => setCountry(e.target.value)}
+                    />
+                 <label htmlFor="address">Address</label>
+                    <input
+                    className="login-input"
+                    placeholder="Address"
+                        id="address"
+                        type="text"
+                        name="address"
+                        value={address}
+                        onChange={e => setAddress(e.target.value)}
+                    />
+                    <label htmlFor="active">Active/Inactive</label>
+                    <input
+                    label="Inactive"
+                        id="true"
+                        type="checkbox"
+                        
+                        value={active}
+                        onChange={e => setActive(e.target.value)}
+                    />
+                    <input
+                    label="Active"
+                        id="false"
+                        type="checkbox"
+                        
+                        value={active}
+                        onChange={e => setActive(e.target.value)}
+                        
+                    />
                 <div style={{ marginTop: '30px' }}>
                     <input type="submit" value="Update" />
                     <input

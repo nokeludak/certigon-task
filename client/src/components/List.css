@@ -11,6 +11,15 @@
   
   padding: 10px 10px;
 }
+@media screen and (max-width: 380px) {
+  .contain-table {
+    min-width: 350px;
+    height: auto;
+    overflow-y: scroll;
+    box-shadow: none;
+    padding: 0;
+  }
+}
 
 .button-edit {
   border-radius: 20px;

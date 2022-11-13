@@ -14,7 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
-export default function List({ employees, handleEdit, handleDelete }) {
+export default function List({ customers, handleEdit, handleDelete }) {
     
   return (
     <div className="contain-table">
@@ -31,21 +31,22 @@ export default function List({ employees, handleEdit, handleDelete }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employees.map((employee, i) => (
+          {customers.map((customers, i) => (
             <TableRow
-              key={employee.id}
+              key={customers.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {employee.firstName}
+                {customers.name}
               </TableCell>
-              <TableCell align="right">{employee.lastName}</TableCell>
-              <TableCell align="right">{employee.department}</TableCell>
-              <TableCell align="right">{employee.country}</TableCell>
-              <TableCell align="right">{employee.address}</TableCell>
-              <TableCell align="right">{employee.active}</TableCell>
+              
+              <TableCell align="right">{customers.lastName}</TableCell>
+              <TableCell align="right">{customers.department}</TableCell>
+              <TableCell align="right">{customers.country}</TableCell>
+              <TableCell align="right">{customers.address}</TableCell>
+              <TableCell align="right">{customers.active}</TableCell>
               <td className="text-right">
-                  <button   onClick={() => handleEdit(employee.id)}
+                  <button   onClick={() => handleEdit(customers.id)}
                     className="button-edit"
                   >
                     Edit
@@ -56,7 +57,7 @@ export default function List({ employees, handleEdit, handleDelete }) {
                 <Stack direction="row" alignItems="center" spacing={1}>
      
      <IconButton aria-label="delete" size="large"
-     onClick={() => handleDelete(employee.id)}>
+     onClick={() => handleDelete(customers.id)}>
        <DeleteIcon fontSize="inherit" />
      </IconButton>
    </Stack>
